@@ -50,7 +50,6 @@ colorscheme solarized
 
 Bundle 'lukaszkorecki/CoffeeTags'
 Plugin 'triglav/vim-visual-increment'
-Plugin 'marijnh/tern_for_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
 Plugin 'godlygeek/tabular'
@@ -69,37 +68,12 @@ Plugin 'junegunn/fzf.vim'
 Bundle 'honza/vim-snippets'
 Bundle 'vim-ruby/vim-ruby'
 
-
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" scripts from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-Plugin 'FuzzyFinder'
 
 filetype plugin indent on     " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
 "
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plugin commands are not allowed.
-" Put your stuff after this line
-
-
-
-" Auto compile CoffeeScript
-" let coffee_make_options = '-p'
-" let coffee_compiler = 'coffee'
-" autocmd QuickFixCmdPost * nested cwindow | redraw!
-" autocmd BufWritePost *.coffee silent make!
-" autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-" autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 " copy stuff
 nmap ,cs :let @+=expand("%")<cr>
@@ -123,39 +97,11 @@ function! EscapeString (string)
   return string
 endfunction
 
-" Get the current visual block for search and replaces
-" This function passed the visual block through a string escape function
-" Based on this - http://stackoverflow.com/questions/676600/vim-replace-selected-text/677918#677918
-function! GetVisual() range
-  " Save the current register and clipboard
-  let reg_save = getreg('"')
-  let regtype_save = getregtype('"')
-  let cb_save = &clipboard
-  set clipboard&
-
-  " Put the current visual selection in the " register
-  normal! ""gvy
-  let selection = getreg('"')
-
-  " Put the saved registers and clipboards back
-  call setreg('"', reg_save, regtype_save)
-  let &clipboard = cb_save
-
-  "Escape any special characters in the selection
-  let escaped_selection = EscapeString(selection)
-
-  return escaped_selection
-endfunction
-
-" Start the find and replace command across the entire file
-vmap <leader>z <Esc>:%s/<c-r>=GetVisual()<cr>/
-
-
-
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
+
 " netrw configuration
 let g:netrw_liststyle=3
 
