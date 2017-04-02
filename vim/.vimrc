@@ -59,13 +59,10 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails.git'
 Plugin 'danro/rename.vim'
 Plugin 'airblade/vim-gitgutter'
-" Plugin 'Lokaltog/powerline' " INSTALL LATERER
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-rake'
 Plugin 'majutsushi/tagbar'
 
-" Track the engine.
-Bundle 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Bundle 'honza/vim-snippets'
 Bundle 'vim-ruby/vim-ruby'
@@ -96,32 +93,6 @@ filetype plugin indent on     " required
 " Put your stuff after this line
 
 
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-
-" Command-T Stuff
-let g:CommandTFileScanner = "find"
-let g:CommandTMaxHeight = 30
-let g:CommandTMaxFiles = 500000
-set hlsearch
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
-map <leader>ga :CommandTFlush<cr>\|:CommandT app/assets<cr>
-map <leader>gt :CommandTFlush<cr>\|:CommandT spec/<cr>
-map <leader>gb :CommandTFlush<cr>\|:CommandT app/assets/javascripts/backbone/budgeting/<cr>
-map ta :tab ball<cr>
 
 " Auto compile CoffeeScript
 " let coffee_make_options = '-p'
