@@ -62,6 +62,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-rake'
 Plugin 'majutsushi/tagbar'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " Snippets are separated from the engine. Add this if you want them:
 Bundle 'honza/vim-snippets'
@@ -74,9 +76,6 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " scripts from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 Plugin 'FuzzyFinder'
-" scripts not on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-
 
 filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
