@@ -46,16 +46,21 @@ Plug 'junegunn/vim-plug'
 " The following are examples of different formats supported.
 " Keep Plug commands between here and filetype plugin indent on.
 " scripts on GitHub repos
+Plug 'easymotion/vim-easymotion'
+Plug 'majutsushi/tagbar'
 Plug 'altercation/vim-colors-solarized'
 Plug 'triglav/vim-visual-increment'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-abolish'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'rust-lang/rust.vim'
 Plug 'danro/rename.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/TaskList.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 let g:solarized_termcolors=256
@@ -81,3 +86,58 @@ let g:ag_prg="rg --vimgrep"
 
 " NERDTree
 map <C-n> :NERDTreeFind<CR>
+
+" Tagbar
+nmap <leader>T :TagbarToggle<CR>
+let g:tagbar_type_javascript = {
+      \ 'ctagstype': 'javascript',
+      \ 'kinds': [
+      \ 'A:arrays',
+      \ 'P:properties',
+      \ 'T:tags',
+      \ 'O:objects',
+      \ 'G:generator functions',
+      \ 'F:functions',
+      \ 'C:constructors/classes',
+      \ 'M:methods',
+      \ 'V:variables',
+      \ 'I:imports',
+      \ 'E:exports',
+      \ 'S:styled components'
+      \ ]}
+
+
+" Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+
+" Configuration for vim-scala
+au BufRead,BufNewFile *.sbt set filetype=scala
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Base64 decode
+noremap <leader>d64 cw<c-r>=trim(system('base64 --decode', @"))<cr><esc>
+
+" Base64 encode
+noremap <leader>64 cw<c-r>=trim(system('base64', @"))<cr><esc>
+
+" Base64 decode
+vnoremap <leader>d64 c<c-r>=trim(system('base64 --decode', @"))<cr><esc>
+
+" Base64 encode
+vnoremap <leader>64 c<c-r>=trim(system('base64', @"))<cr><esc>
+
+" prettyfy json
+noremap <leader>jqq :%!jq .<cr>
+
+" back to one-line
+noremap <leader>jqc :%!jq -c .<cr>
