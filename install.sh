@@ -5,3 +5,5 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 . "$DOTFILES_DIR/brew/install.sh"
 
+mkdir -p ~/.config/nvim/
+ln -s $(pwd)/vim/.vimrc ~/.config/nvim/init.vim
