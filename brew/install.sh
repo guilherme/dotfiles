@@ -11,3 +11,4 @@ brew update
 brew upgrade
 
 brew install git imagemagick jq rust wget htop coreutils ripgrep watch gdb aliases infinite-pipe neovim/neovim/neovim
+brew install --cask rectangle
